@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>REGISTRATION</title>
+</head>
+<body bgcolor="grey">
+<marquee><h1>REGISTRATION FORM</h1></marquee>
+<center>
+<form name="form" action="" method="POST" onsubmit="return validateForm()">
+    Name<input type="text" name="fname"><br><br>
+    Age <select name="age">
+        <option>20-22</option>
+        <option>23-25</option>
+        <option>25-27</option>
+    </select><br>
+    Email<input type="email" name="email"><br><br>
+    Password<input type="password" name="passcode"><br><br>
+    Gender<input type="radio" name="gender" value="male"> Male  
+        <input type="radio" name="gender" value="female"> Female  
+        <input type="radio" name="gender" value="other"> Other <br>  <br>
+    Language<input type="checkbox" name="language" value="Malayalam">Malayalam
+        <input type="checkbox" name="language" value="English">English
+        <input type="checkbox" name="language" value="Hindi">Hindi<br><br>
+    Upload CV<input type="file"><br><br>
+    <center><button type="submit" value="Submit">Submit</button></center>
+</form></center>
+    <script>
+        function validateForm() {
+            var fname = document.form.fname.value;
+            var email = document.form.email.value;
+            var passcode = document.form.passcode.value;
+            var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+            if (fname == "") {
+                alert("Enter your name");
+                document.form.fname.focus();
+                return false;
+            } else if (/^[0-9!@#$%^&*]+$/.test(fname)) {
+                alert("Enter a valid name");
+                return false;
+            }
+
+            if (email == "") {
+                alert("Enter email");
+                document.form.email.focus();
+                return false;
+            } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+                alert("Enter a valid email");
+                document.form.email.focus();
+                return false;
+            }
+
+            if (passcode == "" || passcode.length < 8 || !re.test(passcode)) {
+                alert("Enter a minimum 8-character password with at least one lowercase, one uppercase, one digit, and one special character");
+                document.form.passcode.focus();
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+</body>
+</html>
+	
